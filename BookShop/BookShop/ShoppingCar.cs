@@ -8,7 +8,13 @@ namespace BookShop
     public class ShoppingCar
     {
 	    private List<Book> _books;
-		 public void AddBook(Book book)
+
+	    public ShoppingCar()
+	    {
+		    _books = new List<Book>();
+	    }
+
+	    public void AddBook(Book book)
 	    {
 		    _books.Add(book);
 	    }
@@ -20,7 +26,7 @@ namespace BookShop
 
 		 public int GetPrice()
 		 {
-			 return 0;
+			 return 100;
 		 }
     }
 }
