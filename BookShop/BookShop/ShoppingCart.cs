@@ -7,27 +7,27 @@ namespace BookShop
 {
 	public class ShoppingCart
 	{
-		private List<CartItem> _items;
+		private List<CartItem> _products;
 
 		public ShoppingCart()
 		{
-			_items = new List<CartItem>();
+			_products = new List<CartItem>();
 		}
 
-		public void AddBook(CartItem book)
+		public void AddProduct(CartItem book)
 		{
-			_items.Add(book);
+			_products.Add(book);
 		}
 
-		public void AddMultiBooks(List<CartItem> books)
+		public void AddMutiProducts(List<CartItem> books)
 		{
-			_items.AddRange(books);
+			_products.AddRange(books);
 		}
 
 		public int GetPrice()
 		{
-			var price = _items.Sum(item => item.Price);
-			if (_items.Count > 1)
+			var price = _products.Sum(product => product.Price);
+			if (_products.Count > 1)
 			{
 				price = (int) (price * 0.95);
 			}
