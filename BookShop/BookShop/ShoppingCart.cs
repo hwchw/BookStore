@@ -5,21 +5,21 @@ using System.Text;
 
 namespace BookShop
 {
-	public class ShoppingCar
+	public class ShoppingCart
 	{
-		private List<Book> _books;
+		private List<CartItem> _books;
 
-		public ShoppingCar()
+		public ShoppingCart()
 		{
-			_books = new List<Book>();
+			_books = new List<CartItem>();
 		}
 
-		public void AddBook(Book book)
+		public void AddBook(CartItem book)
 		{
 			_books.Add(book);
 		}
 
-		public void AddMultiBooks(List<Book> books)
+		public void AddMultiBooks(List<CartItem> books)
 		{
 			_books.AddRange(books);
 		}
