@@ -5,28 +5,28 @@ using System.Text;
 
 namespace BookShop
 {
-    public class ShoppingCar
-    {
-	    private List<Book> _books;
+	public class ShoppingCar
+	{
+		private List<Book> _books;
 
-	    public ShoppingCar()
-	    {
-		    _books = new List<Book>();
-	    }
+		public ShoppingCar()
+		{
+			_books = new List<Book>();
+		}
 
-	    public void AddBook(Book book)
-	    {
-		    _books.Add(book);
-	    }
+		public void AddBook(Book book)
+		{
+			_books.Add(book);
+		}
 
-		 public void AddMultiBooks(List<Book> books)
-	    {
-		    _books.AddRange(books);
-	    }
+		public void AddMultiBooks(List<Book> books)
+		{
+			_books.AddRange(books);
+		}
 
-		 public int GetPrice()
-		 {
-			 return 100;
-		 }
-    }
+		public int GetPrice()
+		{
+			return 100;
+		}
+	}
 }
