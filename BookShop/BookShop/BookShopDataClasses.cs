@@ -43,7 +43,7 @@ namespace BookShop
 		void SetProduct(List<CartItem> products);
 	}
 
-	internal enum DiscountType
+	public enum DiscountType
 	{
 		TwoDistinctBooks = 2,
 		ThreeDistinctBooks,
