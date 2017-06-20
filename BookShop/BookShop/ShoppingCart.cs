@@ -28,9 +28,8 @@ namespace BookShop
 			if (_products.Count == 2)
 				return (int) (price * 0.95);
 			if (_products.Count == 3)
-			{
 				return (int) (price * 0.9);
-			}
+
 			return price;
 		}
 	}
