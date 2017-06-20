@@ -22,28 +22,49 @@ namespace BookShop
 			_products.AddRange(books);
 		}
 
-		public double GetPrice()
+		public decimal GetPrice()
 		{
-			var originalPrice = _products.Sum(product => product.Price);
-			var discount = GetDiscount();
+			decimal sum = 0;
+			var discountGroupList = GetDiscountGroupList();
+			foreach (var group in discountGroupList)
+			{
+				sum += GetOriginalGroupPrice(group) * GetDiscount((DiscountType)group.Count);
+			}
 
-			return originalPrice * discount;
+			return sum;
 		}
 
-		private double GetDiscount()
+		private static int GetOriginalGroupPrice(IEnumerable<IProduct> products)
 		{
-			switch (_products.Count)
+			return products.Sum(product => product.Price);
+		}
+
+		private static decimal GetDiscount(DiscountType groupCount)
+		{
+			switch (groupCount)
 			{
-				case 2:
-					return 0.95;
-				case 3:
-					return 0.9;
-				case 4:
-					return 0.8;
-				case 5:
-					return 0.75;
+				case DiscountType.TwoDistinctBooks:
+					return 0.95m;
+				case DiscountType.ThreeDistinctBooks:
+					return 0.9m;
+				case DiscountType.FourDistinctBooks:
+					return 0.8m;
+				case DiscountType.FiveDistictBooks:
+					return 0.75m;
+				default:
+					return 1;
 			}
-			return 1;
+		}
+
+		private List<List<IProduct>> GetDiscountGroupList()
+		{
+			var productDiscountGroup = new List<List<IProduct>>();
+			var consumeCount = _products.Max(product => product.Quantity);
+			for (var i = 1; i <= consumeCount; i++)
+			{
+				productDiscountGroup.Add(_products.Where(x => x.Quantity - i >= 0).Select(x => x.Item).ToList());
+			}
+			return productDiscountGroup;
 		}
 	}
 }

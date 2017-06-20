@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace BookShop
 {
-	public class Book : IGoods
+	public class Book : IProduct
 	{
 		public Book(int id, string bookName, int price)
 		{
@@ -18,14 +18,14 @@ namespace BookShop
 
 	public class CartItem
 	{
-		public CartItem(IGoods item, int optionalQuantity = 1)
+		public CartItem(IProduct item, int optionalQuantity = 1)
 		{
 			Item = item;
 			Quantity = optionalQuantity;
 			Price = Quantity * Item.Price;
 		}
 
-		public IGoods Item { get; private set; }
+		public IProduct Item { get; private set; }
 		public int Quantity { get; private set; }
 		public int Price { get; private set; }
 
@@ -42,10 +42,18 @@ namespace BookShop
 		}
 	}
 
-	public interface IGoods
+	public interface IProduct
 	{
 		int Id { get; }
 		string Name { get; }
 		int Price { get; }
+	}
+
+	enum DiscountType
+	{
+		TwoDistinctBooks = 2,
+		ThreeDistinctBooks,
+		FourDistinctBooks,
+		FiveDistictBooks
 	}
 }
