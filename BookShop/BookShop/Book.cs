@@ -37,6 +37,11 @@ namespace BookShop
 		int Price { get; }
 	}
 
+	public interface IDiscountHelper
+	{
+		decimal GetPrice();
+	}
+
 	internal enum DiscountType
 	{
 		TwoDistinctBooks = 2,

@@ -20,7 +20,7 @@ namespace BookShopTests
 
 			//act
 			const int expected = 100;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			//assert
 			Assert.AreEqual(expected, actual);
@@ -38,7 +38,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 190;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -56,7 +56,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 270;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -75,7 +75,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 320;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -95,7 +95,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 375;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -113,7 +113,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 370;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -131,7 +131,7 @@ namespace BookShopTests
 			shoppingCar.AddMutiProducts(books);
 
 			const int expected = 460;
-			var actual = shoppingCar.GetPrice();
+			var actual = shoppingCar.GetPrice(new HarryPotterDiscountHelper(books));
 
 			Assert.AreEqual(expected, actual);
 		}
