@@ -40,6 +40,7 @@ namespace BookShop
 	public interface IDiscountHelper
 	{
 		decimal GetPrice();
+		void SetProduct(List<CartItem> products);
 	}
 
 	internal enum DiscountType

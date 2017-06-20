@@ -5,9 +5,9 @@ namespace BookShop
 {
 	public class HarryPotterDiscountHelper : IDiscountHelper
 	{
-		private readonly List<CartItem> _products;
+		private List<CartItem> _products;
 
-		public HarryPotterDiscountHelper(List<CartItem> products)
+		public void SetProduct(List<CartItem> products)
 		{
 			_products = products;
 		}

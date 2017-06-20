@@ -23,8 +23,8 @@ namespace BookShop
 
 		public decimal GetPrice(IDiscountHelper discountHelper)
 		{
-			var totalPrice = discountHelper.GetPrice();
-			return totalPrice;
+			discountHelper.SetProduct(_products);
+			return discountHelper.GetPrice();;
 		}
 
 	}
