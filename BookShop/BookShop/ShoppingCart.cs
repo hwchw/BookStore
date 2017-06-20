@@ -5,7 +5,7 @@ namespace BookShop
 {
 	public class ShoppingCart
 	{
-		private List<CartItem> _products;
+		private readonly List<CartItem> _products;
 
 		public ShoppingCart()
 		{
@@ -24,17 +24,11 @@ namespace BookShop
 
 		public decimal GetPrice()
 		{
-			decimal sum = 0;
-			var discountGroupList = GetDiscountGroupList();
-			foreach (var group in discountGroupList)
-			{
-				sum += GetOriginalGroupPrice(group) * GetDiscount((DiscountType)group.Count);
-			}
-
-			return sum;
+			var products = GetDiscountGroupList();
+			return products.Sum(discountGroup => GetTotalProductPrice(discountGroup) * GetDiscount((DiscountType)discountGroup.Count));
 		}
 
-		private static int GetOriginalGroupPrice(IEnumerable<IProduct> products)
+		private static int GetTotalProductPrice(IEnumerable<IProduct> products)
 		{
 			return products.Sum(product => product.Price);
 		}
@@ -56,7 +50,7 @@ namespace BookShop
 			}
 		}
 
-		private List<List<IProduct>> GetDiscountGroupList()
+		private IEnumerable<List<IProduct>> GetDiscountGroupList()
 		{
 			var productDiscountGroup = new List<List<IProduct>>();
 			var consumeCount = _products.Max(product => product.Quantity);

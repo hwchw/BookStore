@@ -28,18 +28,6 @@ namespace BookShop
 		public IProduct Item { get; private set; }
 		public int Quantity { get; private set; }
 		public int Price { get; private set; }
-
-		public void QuantityUp()
-		{
-			Quantity++;
-			Price = Quantity * Item.Price;
-		}		
-		
-		public void QuantityDown()
-		{
-			Quantity--;
-			Price = Quantity * Item.Price;
-		}
 	}
 
 	public interface IProduct
@@ -49,7 +37,7 @@ namespace BookShop
 		int Price { get; }
 	}
 
-	enum DiscountType
+	internal enum DiscountType
 	{
 		TwoDistinctBooks = 2,
 		ThreeDistinctBooks,
