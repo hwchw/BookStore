@@ -99,5 +99,23 @@ namespace BookShopTests
 
 			Assert.AreEqual(expected, actual);
 		}
+
+		[TestMethod()]
+		public void Given_HarryPotter_ep1_1_ep2_1_ep3_2_ep4_0_ep5_0_price_should_equal_370()
+		{
+			var shoppingCar = new ShoppingCart();
+			var books = new List<CartItem>
+			{
+				new CartItem(new Book(001, "Harry Potter:The Philosopher's Stone", 100)),
+				new CartItem(new Book(002, "Harry Potter:The Chamber of Secrets", 100)),
+				new CartItem(new Book(003, "Harry Potter:The Prisoner of Azkabans", 100),2)
+			};
+			shoppingCar.AddMutiProducts(books);
+
+			const int expected = 370;
+			var actual = shoppingCar.GetPrice();
+
+			Assert.AreEqual(expected, actual);
+		}
 	}
 }

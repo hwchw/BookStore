@@ -18,10 +18,10 @@ namespace BookShop
 
 	public class CartItem
 	{
-		public CartItem(IGoods item)
+		public CartItem(IGoods item, int optionalQuantity = 1)
 		{
 			Item = item;
-			Quantity = 1;
+			Quantity = optionalQuantity;
 			Price = Quantity * Item.Price;
 		}
 
