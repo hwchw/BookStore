@@ -32,12 +32,17 @@ namespace BookShop
 
 		private double GetDiscount()
 		{
-			if (_products.Count == 2)
-				return 0.95;
-			if (_products.Count == 3)
-				return 0.9;
-			if (_products.Count == 4)
-				return 0.8;
+			switch (_products.Count)
+			{
+				case 2:
+					return 0.95;
+				case 3:
+					return 0.9;
+				case 4:
+					return 0.8;
+				case 5:
+					return 0.75;
+			}
 			return 1;
 		}
 	}
