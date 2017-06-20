@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BookShop
 {
@@ -26,10 +24,12 @@ namespace BookShop
 
 		public int GetPrice()
 		{
-			var price = _products.Sum(product => product.Price);
-			if (_products.Count > 1)
+			var price = _products.Sum(product=>product.Price);
+			if (_products.Count == 2)
+				return (int) (price * 0.95);
+			if (_products.Count == 3)
 			{
-				price = (int) (price * 0.95);
+				return (int) (price * 0.9);
 			}
 			return price;
 		}
